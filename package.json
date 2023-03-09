@@ -33,13 +33,9 @@
     "vue-cli-plugin-electron-builder": "~2.1.1",
     "vuex-persistedstate": "^4.1.0"
   },
-  "build": {
-    "appId": "your.app.id",
-    "productName": "Tasky",
-    "copyright": "Copyright © 2021 Alaso",
-    "directories": {
-      "buildResources": "build",
-      "output": "dist"
+  "overrides": {
+    "vue-cli-plugin-electron-builder": {
+      "electron-builder": "^23.0.3"
     }
   },
   "eslintConfig": {
