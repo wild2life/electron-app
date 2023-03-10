@@ -5,6 +5,9 @@ const PACKAGE = require('./package.json')
   }
 
 module.exports = {
+  configureWebpack: {
+    devtool: 'source-map'
+  },
   //多页面打包
   publicPath: './',
   pages: {
@@ -24,15 +27,22 @@ module.exports = {
   pluginOptions: {
     electronBuilder: {
       builderOptions: {
-        // appId: 'holo.cmd.app',
+        // appId: 'com.cmd.app',
         productName: 'AppDemo', //项目名，也是生成的安装文件名，即aDemo.exe
         copyright: 'Copyright © 2023 基础技术', //版权信息
         directories: {
           output: 'dist', //输出文件路径
           // buildResources: 'public'
         },
+        // files: [
+        //   "./build/**/*",
+        //   "./dist/**/*",
+        //   "./node_modules/**/*",
+        //   "./public/**/*",
+        //   "*.js"
+        // ],
         win: {
-          icon: 'public/favicon.ico',
+          icon: 'public/win.ico',
           target: [
             {
               target: 'nsis',

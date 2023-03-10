@@ -1,15 +1,19 @@
 {
   "name": "electron-app",
   "version": "0.1.0",
+  "description": "",
+  "author": "zhangfuling",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "electron:build": "vue-cli-service electron:build",
-    "electron:serve": "vue-cli-service electron:serve",
-    "postinstall": "electron-builder install-app-deps",
-    "postuninstall": "electron-builder install-app-deps"
+    "electron:build": "export NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service electron:build",
+    "electron:serve": "export NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service electron:serve",
+    "postinstall": "export NODE_OPTIONS=--openssl-legacy-provider && electron-builder install-app-deps",
+    "postuninstall": "export NODE_OPTIONS=--openssl-legacy-provider && electron-builder install-app-deps",
+    "electron:build-win64": "export NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service electron:build --windows --x64",
+    "electron:build-mac": "export NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service electron:build --macos"
   },
   "main": "background.js",
   "dependencies": {

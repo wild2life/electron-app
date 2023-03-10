@@ -11,10 +11,12 @@ let remindWindow
 app.on('ready', async () => {
   mainWindow = new BrowserWindow({
     frame: false,
-    resizable: false,
     width: 800,
     height: 600,
     icon: iconPath,
+    maximizable: true, // 最大化按钮
+    minimizable: true, // 最小化按钮
+    resizable: false, // 窗口是否可以拖拽改变大小
     webPreferences:{
       backgroundThrottling: false,
       nodeIntegration:true,
@@ -101,7 +103,7 @@ function createRemindWindow (task) {
     x: size.width - width,
     y: yPosition,
     height,
-    width 
+    width
   })
 
   remindWindow.setAlwaysOnTop(true)
@@ -112,7 +114,7 @@ function createRemindWindow (task) {
     createProtocol('app')
     remindWindow.loadURL(`file://${__dirname}/remind.html`)
   }
-  
+
   remindWindow.webContents.on('did-finish-load', () => {
     remindWindow.webContents.send('setTask', task)
   })
